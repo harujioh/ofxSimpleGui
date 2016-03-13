@@ -8,6 +8,8 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
    public:
     ofxSimpleSlider();
 
+    ofxSimpleSlider* setup(const std::string& name, Type value, Type min, Type max, float width = defaultWidth, float height = defaultHeight);
+
     void setMin(Type min);
     Type getMin();
     void setMax(Type max);
@@ -26,7 +28,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
    protected:
     virtual void resize();
     virtual void render();
-    
+
     virtual void update();
 
     ofParameter<Type> value, lastValue;
@@ -37,7 +39,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     ofColor barColor = ofColor(128, 128, 128);
 
     bool bUpdateOnReleaseOnly = false;
-    
+
     bool bHandling = false;
 };
 

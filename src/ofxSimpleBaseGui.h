@@ -63,13 +63,20 @@ class ofxSimpleBaseGui {
     ofRectangle rect;
     ofRectangle b, p;
 
-    ofColor backgroundColor = ofColor(255, 255, 255, 0);
-    ofColor borderColor = ofColor(0, 0, 0);
-    ofColor textColor = ofColor(0, 0, 0);
-    float borderWidth = 1;
+    ofColor backgroundColor = defaultBackgroundColor;
+    ofColor borderColor = defaultBorderColor;
+    ofColor textColor = defaultTextColor;
+    float borderWidth = defaultBorderWidth;
 
     void registerMouseEvents();
     void unregisterMouseEvents();
+
+    static int defaultWidth;
+    static int defaultHeight;
+    static ofColor defaultBackgroundColor;
+    static ofColor defaultBorderColor;
+    static ofColor defaultTextColor;
+    static float defaultBorderWidth;
 
    private:
     bool bRegisteredForMouseEvents = false;

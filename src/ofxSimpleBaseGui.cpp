@@ -119,3 +119,10 @@ bool ofxSimpleBaseGui::onMouseDragged(ofMouseEventArgs& args) { return rect.insi
 bool ofxSimpleBaseGui::onMouseReleased(ofMouseEventArgs& args) { return rect.inside(args.x, args.y); }
 
 bool ofxSimpleBaseGui::onMouseScrolled(ofMouseEventArgs& args) { return rect.inside(args.x, args.y); }
+
+int ofxSimpleBaseGui::defaultWidth = 200;
+int ofxSimpleBaseGui::defaultHeight = 20;
+ofColor ofxSimpleBaseGui::defaultBackgroundColor = ofColor(255, 255, 255, 0);
+ofColor ofxSimpleBaseGui::defaultBorderColor = ofColor(0, 0, 0);
+ofColor ofxSimpleBaseGui::defaultTextColor = ofColor(0, 0, 0);
+float ofxSimpleBaseGui::defaultBorderWidth = 1;

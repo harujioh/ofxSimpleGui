@@ -6,6 +6,15 @@ ofxSimpleSlider<Type>::ofxSimpleSlider() {
 }
 
 template <typename Type>
+ofxSimpleSlider<Type>* ofxSimpleSlider<Type>::setup(const std::string& name, Type value, Type min, Type max, float width, float height) {
+    this->name = name;
+    this->value.set(name, value, min, max);
+    setSize(width, height);
+
+    return this;
+}
+
+template <typename Type>
 void ofxSimpleSlider<Type>::resize() {
     background.clear();
     background.setFillColor(backgroundColor);

@@ -45,9 +45,19 @@ void ofxSimpleSlider<Type>::update() {
 
     if (!bUpdateOnReleaseOnly || !bHandling) {
         if (value != lastValue) {
-            ofLogNotice() << "update : " << value;
             lastValue = value;
         }
+    }
+}
+
+template <typename Type>
+void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
+    if (value != v) {
+        if (notifyEvent) {
+            ofNotifyEvent(changeValueEvent, v);
+        }
+        value = v;
+        update();
     }
 }
 
@@ -76,11 +86,11 @@ Type ofxSimpleSlider<Type>::getMax() {
 template <typename Type>
 bool ofxSimpleSlider<Type>::onMousePressed(ofMouseEventArgs& args) {
     if (rect.inside(args.x, args.y)) {
-        float w = rect.width - borderWidth * 2;
-        value = (args.x - (rect.x + borderWidth)) / w * (value.getMax() - value.getMin());
-
         bHandling = true;
-        update();
+
+        float w = rect.width - borderWidth * 2;
+        Type v = (args.x - (rect.x + borderWidth)) / w * (value.getMax() - value.getMin());
+        changeValue(v);
         return true;
     }
     return false;
@@ -93,9 +103,7 @@ bool ofxSimpleSlider<Type>::onMouseDragged(ofMouseEventArgs& args) {
         Type v = (args.x - (rect.x + borderWidth)) / w * (value.getMax() - value.getMin());
         v = value.getMin() > v ? value.getMin() : v;
         v = value.getMax() < v ? value.getMax() : v;
-        value = v;
-
-        update();
+        changeValue(v);
         return true;
     }
     return false;
@@ -115,8 +123,7 @@ bool ofxSimpleSlider<Type>::onMouseScrolled(ofMouseEventArgs& args) {
 
 template <typename Type>
 double ofxSimpleSlider<Type>::operator=(Type v) {
-    value = v;
-    update();
+    changeValue(v, false);
     return v;
 }
 

@@ -1,0 +1,3 @@
+## ofxSimpleGui
+
+openFrameworks GUI addon

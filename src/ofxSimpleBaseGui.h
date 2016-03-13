@@ -1,6 +1,9 @@
 #pragma once
 
+#include "ofConstants.h"
 #include "ofBaseTypes.h"
+#include "ofParameter.h"
+#include "ofTrueTypeFont.h"
 
 class ofxSimpleBaseGui {
    public:
@@ -25,10 +28,12 @@ class ofxSimpleBaseGui {
     ofColor getBackgroundColor() const;
     ofColor getBorderColor() const;
     ofColor getTextColor() const;
+    float getBorderWidth() const;
 
     void setBackgroundColor(const ofColor& color);
     void setBorderColor(const ofColor& color);
     void setTextColor(const ofColor& color);
+    void setBorderWidth(const float& width);
 
     void setParent(ofxSimpleBaseGui* parent);
     ofxSimpleBaseGui* getParent();
@@ -50,15 +55,18 @@ class ofxSimpleBaseGui {
    protected:
     virtual void render() = 0;
 
+    virtual void resize() = 0;
+
     ofxSimpleBaseGui* parent = nullptr;
     std::string name;
 
     ofRectangle rect;
     ofRectangle b, p;
 
-    ofColor backgroundColor = ofColor(255, 25, 255);
+    ofColor backgroundColor = ofColor(255, 255, 255, 0);
     ofColor borderColor = ofColor(0, 0, 0);
     ofColor textColor = ofColor(0, 0, 0);
+    float borderWidth = 1;
 
     void registerMouseEvents();
     void unregisterMouseEvents();
@@ -66,5 +74,5 @@ class ofxSimpleBaseGui {
    private:
     bool bRegisteredForMouseEvents = false;
 
-    void resize();
+    void resizeRect();
 };

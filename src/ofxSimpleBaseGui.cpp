@@ -27,29 +27,29 @@ void ofxSimpleBaseGui::setName(const std::string& name) { this->name = name; }
 void ofxSimpleBaseGui::setPosition(const ofPoint& p) {
     b.x = p.x;
     b.y = p.y;
-    resize();
+    resizeRect();
 }
 
 void ofxSimpleBaseGui::setPosition(float x, float y) {
     b.x = x;
     b.y = y;
-    resize();
+    resizeRect();
 }
 
 void ofxSimpleBaseGui::setSize(float w, float h) {
     b.width = w;
     b.height = h;
-    resize();
+    resizeRect();
 }
 
 void ofxSimpleBaseGui::setShape(ofRectangle r) {
     b = r;
-    resize();
+    resizeRect();
 }
 
 void ofxSimpleBaseGui::setShape(float x, float y, float w, float h) {
     b.set(x, y, w, h);
-    resize();
+    resizeRect();
 }
 
 ofPoint ofxSimpleBaseGui::getPosition() const { return ofPoint(b.x, b.y); }
@@ -60,7 +60,10 @@ float ofxSimpleBaseGui::getWidth() const { return b.width; }
 
 float ofxSimpleBaseGui::getHeight() const { return b.height; }
 
-void ofxSimpleBaseGui::resize() { rect.set(b.x, b.y, b.width + p.x + p.width, b.height + p.y + p.height); }
+void ofxSimpleBaseGui::resizeRect() {
+    rect.set(b.x, b.y, b.width + p.x + p.width, b.height + p.y + p.height);
+    resize();
+}
 
 ofColor ofxSimpleBaseGui::getBackgroundColor() const { return backgroundColor; }
 
@@ -68,11 +71,15 @@ ofColor ofxSimpleBaseGui::getBorderColor() const { return borderColor; }
 
 ofColor ofxSimpleBaseGui::getTextColor() const { return textColor; }
 
+float ofxSimpleBaseGui::getBorderWidth() const { return borderWidth; }
+
 void ofxSimpleBaseGui::setBackgroundColor(const ofColor& color) { backgroundColor = color; }
 
 void ofxSimpleBaseGui::setBorderColor(const ofColor& color) { borderColor = color; }
 
 void ofxSimpleBaseGui::setTextColor(const ofColor& color) { textColor = color; }
+
+void ofxSimpleBaseGui::setBorderWidth(const float& width) { borderWidth = width; }
 
 void ofxSimpleBaseGui::setParent(ofxSimpleBaseGui* parent) { parent = parent; }
 

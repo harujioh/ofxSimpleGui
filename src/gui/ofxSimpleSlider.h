@@ -20,13 +20,25 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     virtual bool onMouseReleased(ofMouseEventArgs& args);
     virtual bool onMouseScrolled(ofMouseEventArgs& args);
 
+    double operator=(Type v);
+    operator const Type&();
+
    protected:
+    virtual void resize();
     virtual void render();
+    
+    virtual void update();
 
-   private:
-    ofParameter<Type> value;
+    ofParameter<Type> value, lastValue;
 
-    bool bUpdateOnReleaseOnly;
+    ofPath background;
+    ofPath bar;
+
+    ofColor barColor = ofColor(128, 128, 128);
+
+    bool bUpdateOnReleaseOnly = false;
+    
+    bool bHandling = false;
 };
 
 typedef ofxSimpleSlider<float> ofxSimpleFloatSlider;

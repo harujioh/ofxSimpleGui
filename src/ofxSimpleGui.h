@@ -1,4 +1,5 @@
 #pragma once
 
 #include "ofxSimpleSlider.h"
-#include "ofxScrollSlider.h"
+#include "ofxScrollbar.h"
+#include "ofxSeekbar.h"

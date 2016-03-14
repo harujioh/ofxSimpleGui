@@ -54,7 +54,6 @@ class ofxSimpleBaseGui {
 
    protected:
     virtual void render() = 0;
-
     virtual void resize() = 0;
 
     ofxSimpleBaseGui* parent = nullptr;

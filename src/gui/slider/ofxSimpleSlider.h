@@ -1,13 +1,12 @@
 #pragma once
 
 #include "ofxSimpleBaseGui.h"
-#include "ofParameter.h"
 
 template <typename Type>
 class ofxSimpleSlider : public ofxSimpleBaseGui {
    public:
     ofxSimpleSlider();
-    ~ofxSimpleSlider(){};
+    virtual ~ofxSimpleSlider(){};
 
     ofxSimpleSlider* setup(const std::string& name, Type value, Type min, Type max, float width = defaultWidth, float height = defaultHeight);
 
@@ -54,7 +53,6 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     bool bHandling = false;
 
-   private:
     void changeValue(Type v, bool notifyEvent = true);
 };
 

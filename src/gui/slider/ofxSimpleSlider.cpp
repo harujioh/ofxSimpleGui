@@ -52,6 +52,8 @@ void ofxSimpleSlider<Type>::update() {
 
 template <typename Type>
 void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
+    v = value.getMin() > v ? value.getMin() : v;
+    v = value.getMax() < v ? value.getMax() : v;
     if (value != v) {
         if (notifyEvent) {
             ofNotifyEvent(changeValueEvent, v);
@@ -101,8 +103,6 @@ bool ofxSimpleSlider<Type>::onMouseDragged(ofMouseEventArgs& args) {
     if (bHandling) {
         float w = rect.width - borderWidth * 2;
         Type v = (args.x - (rect.x + borderWidth)) / w * (value.getMax() - value.getMin());
-        v = value.getMin() > v ? value.getMin() : v;
-        v = value.getMax() < v ? value.getMax() : v;
         changeValue(v);
         return true;
     }

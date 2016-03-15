@@ -18,6 +18,8 @@ class ofxScrollbar : public ofxSimpleSlider<Type> {
         return this;
     }
 
+    void setGripSize(float width, float height) { grip.setSize(width, height); }
+
     virtual bool onMousePressed(ofMouseEventArgs& args) {
         if (grip.inside(args.x, args.y)) {
             this->bHandling = true;

@@ -13,6 +13,12 @@ ofxSimpleButton* ofxSimpleButton::setup(const std::string& name, float width, fl
     return this;
 }
 
+void ofxSimpleButton::resize() {
+    textMesh = getTextMesh(name, b);
+
+    update();
+}
+
 void ofxSimpleButton::update() {
     float w = rect.width - borderWidth * 2;
     float h = rect.height - borderWidth * 2;
@@ -35,7 +41,14 @@ void ofxSimpleButton::update() {
     background.rectangle(rect);
 }
 
-void ofxSimpleButton::render() { background.draw(); }
+void ofxSimpleButton::render() {
+    background.draw();
+
+    ofSetColor(textColor);
+    bindFontTexture();
+    textMesh.draw();
+    unbindFontTexture();
+}
 
 void ofxSimpleButton::changeValue(bool v, bool notifyEvent) {
     if (notifyEvent) {

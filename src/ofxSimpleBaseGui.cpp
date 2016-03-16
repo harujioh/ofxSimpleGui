@@ -1,5 +1,7 @@
 #include "ofxSimpleBaseGui.h"
 
+ofxSimpleBaseGui::ofxSimpleBaseGui() { ofxSimpleBaseGui::loadFont(OF_TTF_MONO, 10, true, true); }
+
 ofxSimpleBaseGui::~ofxSimpleBaseGui() { unregisterMouseEvents(); }
 
 void ofxSimpleBaseGui::registerMouseEvents() {
@@ -16,6 +18,22 @@ void ofxSimpleBaseGui::unregisterMouseEvents() {
     }
     ofUnregisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
     bRegisteredForMouseEvents = false;
+}
+
+void ofxSimpleBaseGui::bindFontTexture() {
+    if (useTTF) {
+        font.getFontTexture().bind();
+    } else {
+        bitmapFont.getTexture().bind();
+    }
+}
+
+void ofxSimpleBaseGui::unbindFontTexture() {
+    if (useTTF) {
+        font.getFontTexture().unbind();
+    } else {
+        bitmapFont.getTexture().unbind();
+    }
 }
 
 void ofxSimpleBaseGui::draw() { render(); }
@@ -119,6 +137,53 @@ bool ofxSimpleBaseGui::onMouseDragged(ofMouseEventArgs& args) { return rect.insi
 bool ofxSimpleBaseGui::onMouseReleased(ofMouseEventArgs& args) { return rect.inside(args.x, args.y); }
 
 bool ofxSimpleBaseGui::onMouseScrolled(ofMouseEventArgs& args) { return rect.inside(args.x, args.y); }
+
+void ofxSimpleBaseGui::loadFont(const std::string& filename, int fontsize, bool antiAliased, bool fullCharacterSet, int dpi) {
+    ofxSimpleBaseGui::font.load(filename, fontsize, antiAliased, fullCharacterSet, false, 0, dpi);
+    ofxSimpleBaseGui::useTTF = true;
+}
+
+ofMesh ofxSimpleBaseGui::getTextMesh(const string& text, float x, float y) {
+    if (useTTF) {
+        return font.getStringMesh(text, x, y);
+    } else {
+        return bitmapFont.getMesh(text, x, y);
+    }
+}
+
+ofMesh ofxSimpleBaseGui::getTextMesh(const string& text, ofRectangle rect, Align align, Valign valign) {
+    ofRectangle textRect = getTextBoundingBox(text);
+
+    float x;
+    if (align == Align::LEFT) {
+        x = rect.x;
+    } else if (align == Align::RIGHT) {
+        x = rect.x + rect.width - textRect.width;
+    } else {
+        x = rect.x + (rect.width - textRect.width) / 2;
+    }
+
+    float y;
+    if (valign == Valign::TOP) {
+        y = rect.y + textRect.height;
+    } else if (valign == Valign::BOTTOM) {
+        y = rect.y + rect.height;
+    } else {
+        y = rect.y + (rect.height + textRect.height) / 2;
+    }
+    return getTextMesh(text, x, y);
+}
+
+ofRectangle ofxSimpleBaseGui::getTextBoundingBox(const string& text, float x, float y) {
+    if (useTTF) {
+        return font.getStringBoundingBox(text, x, y);
+    } else {
+        return bitmapFont.getBoundingBox(text, x, y);
+    }
+}
+
+ofTrueTypeFont ofxSimpleBaseGui::font;
+bool ofxSimpleBaseGui::useTTF = false;
 
 int ofxSimpleBaseGui::defaultWidth = 200;
 int ofxSimpleBaseGui::defaultHeight = 20;

@@ -4,9 +4,16 @@
 #include "ofBaseTypes.h"
 #include "ofParameter.h"
 #include "ofTrueTypeFont.h"
+#include "ofBitmapFont.h"
+#include "ofGraphics.h"
+
+enum Align { CENTER, LEFT, RIGHT };
+
+enum Valign { MIDDLE, TOP, BOTTOM };
 
 class ofxSimpleBaseGui {
    public:
+    ofxSimpleBaseGui();
     virtual ~ofxSimpleBaseGui();
 
     void draw();
@@ -34,6 +41,8 @@ class ofxSimpleBaseGui {
     void setBorderColor(const ofColor& color);
     void setTextColor(const ofColor& color);
     void setBorderWidth(const float& width);
+
+    static void loadFont(const std::string& filename, int fontsize, bool _bAntiAliased = true, bool _bFullCharacterSet = false, int dpi = 0);
 
     void setParent(ofxSimpleBaseGui* parent);
     ofxSimpleBaseGui* getParent();
@@ -69,8 +78,20 @@ class ofxSimpleBaseGui {
     ofColor textColor = defaultTextColor;
     float borderWidth = defaultBorderWidth;
 
+    ofBitmapFont bitmapFont;
+    static ofTrueTypeFont font;
+    static bool useTTF;
+    ofVboMesh textMesh;
+
+    ofMesh getTextMesh(const string& text, float x, float y);
+    ofMesh getTextMesh(const string& text, ofRectangle rect, Align align = Align::CENTER, Valign valign = Valign::MIDDLE);
+    ofRectangle getTextBoundingBox(const string& text, float x = 0, float y = 0);
+
     void registerMouseEvents();
     void unregisterMouseEvents();
+
+    void bindFontTexture();
+    void unbindFontTexture();
 
     static int defaultWidth;
     static int defaultHeight;

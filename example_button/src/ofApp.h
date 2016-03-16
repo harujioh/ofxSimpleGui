@@ -9,8 +9,9 @@ class ofApp : public ofBaseApp {
     void update();
     void draw();
 
-    void clickButton() { ofLogNotice("button"); }
+    void clickButton1() { ofLogNotice("button1"); }
+    void clickButton2() { ofLogNotice("button2"); }
 
    private:
-    ofxSimpleButton button;
+    ofxSimpleButton button1, button2;
 };

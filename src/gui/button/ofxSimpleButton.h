@@ -27,6 +27,7 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
     operator const bool&();
 
    protected:
+    virtual void resize();
     virtual void update();
     virtual void render();
 

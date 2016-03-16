@@ -55,7 +55,7 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
     v = value.getMin() > v ? value.getMin() : v;
     v = value.getMax() < v ? value.getMax() : v;
     if (value != v) {
-        if (notifyEvent) {
+        if (notifyEvent && !bUpdateOnReleaseOnly) {
             ofNotifyEvent(changeValueEvent, v);
         }
         value = v;
@@ -111,8 +111,15 @@ bool ofxSimpleSlider<Type>::onMouseDragged(ofMouseEventArgs& args) {
 
 template <typename Type>
 bool ofxSimpleSlider<Type>::onMouseReleased(ofMouseEventArgs& args) {
-    bHandling = false;
-    update();
+    if (bHandling) {
+        bHandling = false;
+        update();
+
+        if (bUpdateOnReleaseOnly) {
+            Type v = value;
+            ofNotifyEvent(changeValueEvent, v);
+        }
+    }
     return rect.inside(args.x, args.y);
 }
 

@@ -15,7 +15,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     void setMax(Type max);
     Type getMax();
 
-    void setUpdateOnReleaseOnly(bool bUpdateOnReleaseOnly);
+    void setUpdateOnReleaseOnly(bool bUpdateOnReleaseOnly) { this->bUpdateOnReleaseOnly = bUpdateOnReleaseOnly; }
 
     virtual bool onMousePressed(ofMouseEventArgs& args);
     virtual bool onMouseDragged(ofMouseEventArgs& args);

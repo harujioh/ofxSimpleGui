@@ -81,6 +81,7 @@ class ofxSimpleBaseGui {
     ofBitmapFont bitmapFont;
     static ofTrueTypeFont font;
     static bool useTTF;
+    static float fontHeight;
     ofVboMesh textMesh;
 
     ofMesh getTextMesh(const string& text, float x, float y);
@@ -93,6 +94,7 @@ class ofxSimpleBaseGui {
     void bindFontTexture();
     void unbindFontTexture();
 
+    static int defaultFontSize;
     static int defaultWidth;
     static int defaultHeight;
     static ofColor defaultBackgroundColor;
@@ -101,6 +103,8 @@ class ofxSimpleBaseGui {
     static float defaultBorderWidth;
 
    private:
+    static string BASE_FONT_SIZE_CHAR;
+    
     bool bRegisteredForMouseEvents = false;
 
     void resizeRect();

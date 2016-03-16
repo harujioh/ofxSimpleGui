@@ -1,6 +1,6 @@
 #include "ofxSimpleBaseGui.h"
 
-ofxSimpleBaseGui::ofxSimpleBaseGui() { ofxSimpleBaseGui::loadFont(OF_TTF_MONO, 10, true, true); }
+ofxSimpleBaseGui::ofxSimpleBaseGui() { ofxSimpleBaseGui::loadFont(OF_TTF_MONO, defaultFontSize, true, true); }
 
 ofxSimpleBaseGui::~ofxSimpleBaseGui() { unregisterMouseEvents(); }
 
@@ -141,6 +141,7 @@ bool ofxSimpleBaseGui::onMouseScrolled(ofMouseEventArgs& args) { return rect.ins
 void ofxSimpleBaseGui::loadFont(const std::string& filename, int fontsize, bool antiAliased, bool fullCharacterSet, int dpi) {
     ofxSimpleBaseGui::font.load(filename, fontsize, antiAliased, fullCharacterSet, false, 0, dpi);
     ofxSimpleBaseGui::useTTF = true;
+    ofxSimpleBaseGui::fontHeight = font.getStringBoundingBox(BASE_FONT_SIZE_CHAR, 0, 0).height;
 }
 
 ofMesh ofxSimpleBaseGui::getTextMesh(const string& text, float x, float y) {
@@ -153,6 +154,7 @@ ofMesh ofxSimpleBaseGui::getTextMesh(const string& text, float x, float y) {
 
 ofMesh ofxSimpleBaseGui::getTextMesh(const string& text, ofRectangle rect, Align align, Valign valign) {
     ofRectangle textRect = getTextBoundingBox(text);
+    textRect.height = fontHeight;
 
     float x;
     if (align == Align::LEFT) {
@@ -184,10 +186,14 @@ ofRectangle ofxSimpleBaseGui::getTextBoundingBox(const string& text, float x, fl
 
 ofTrueTypeFont ofxSimpleBaseGui::font;
 bool ofxSimpleBaseGui::useTTF = false;
+float ofxSimpleBaseGui::fontHeight = defaultFontSize;
 
+int ofxSimpleBaseGui::defaultFontSize = 10;
 int ofxSimpleBaseGui::defaultWidth = 200;
 int ofxSimpleBaseGui::defaultHeight = 20;
 ofColor ofxSimpleBaseGui::defaultBackgroundColor = ofColor(255, 255, 255, 0);
 ofColor ofxSimpleBaseGui::defaultBorderColor = ofColor(0, 0, 0);
 ofColor ofxSimpleBaseGui::defaultTextColor = ofColor(0, 0, 0);
 float ofxSimpleBaseGui::defaultBorderWidth = 1;
+
+string ofxSimpleBaseGui::BASE_FONT_SIZE_CHAR = "@";

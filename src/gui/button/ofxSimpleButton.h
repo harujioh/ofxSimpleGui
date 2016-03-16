@@ -2,12 +2,16 @@
 
 #include "ofxSimpleBaseGui.h"
 
+enum ButtonType { DEFAULT, PRIMARY, SUCCESS, INFO, WARNING, DANGER };
+
 class ofxSimpleButton : public ofxSimpleBaseGui {
    public:
     ofxSimpleButton();
     virtual ~ofxSimpleButton(){};
 
-    ofxSimpleButton* setup(const std::string& name, float width = defaultWidth, float height = defaultHeight);
+    ofxSimpleButton* setup(const std::string& name, ButtonType type = ButtonType::DEFAULT, float width = defaultWidth, float height = defaultHeight);
+
+    void setButtonType(ButtonType type);
 
     virtual bool onMouseMoved(ofMouseEventArgs& args);
     virtual bool onMousePressed(ofMouseEventArgs& args);
@@ -34,10 +38,10 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
     bool value = false;
     ofEvent<void> clickEvent;
 
-    ofColor backgroundHoverColor = ofColor(0xe6e6e6);
-    ofColor borderHoverColor = ofColor(0xadadad);
-    ofColor backgroundActiveColor = ofColor(0xd4d4d4);
-    ofColor borderActiveColor = ofColor(0x8c8c8c);
+    ofColor backgroundHoverColor;
+    ofColor borderHoverColor;
+    ofColor backgroundActiveColor;
+    ofColor borderActiveColor;
 
     bool bHover = false;
     bool bPressed = false;

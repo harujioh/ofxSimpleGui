@@ -9,9 +9,18 @@ class ofApp : public ofBaseApp {
     void update();
     void draw();
 
-    void clickButton1() { ofLogNotice("button1"); }
-    void clickButton2() { ofLogNotice("button2"); }
+    void clickDefaultButton() { ofLogNotice("default"); }
+    void clickPrimaryButton() { ofLogNotice("primary"); }
+    void clickSuccessButton() { ofLogNotice("success"); }
+    void clickInfoButton() { ofLogNotice("info"); }
+    void clickWarningButton() { ofLogNotice("warning"); }
+    void clickDangerButton() { ofLogNotice("danger"); }
 
    private:
-    ofxSimpleButton button1, button2;
+    ofxSimpleButton defaultButton;
+    ofxSimpleButton primaryButton;
+    ofxSimpleButton successButton;
+    ofxSimpleButton infoButton;
+    ofxSimpleButton warningButton;
+    ofxSimpleButton dangerButton;
 };

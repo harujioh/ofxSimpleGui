@@ -24,7 +24,10 @@ class ofxSeekbar : public ofxScrollbar<Type> {
     void setGripForm(SeekbarGripForm form) { gripForm = form; }
 
     virtual bool onMousePressed(ofMouseEventArgs& args) {
-        if (this->rect.inside(args.x, args.y)) {
+        ofRectangle rect = this->rect;
+        rect.x -= this->grip.width / 2;
+        rect.width += this->grip.width;
+        if (rect.inside(args.x, args.y)) {
             this->bHandling = true;
 
             float w = this->rect.width - this->borderWidth * 2;

@@ -37,14 +37,12 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
    protected:
     virtual void resize();
-    virtual void render();
-
     virtual void update();
+    virtual void render();
 
     ofParameter<Type> value, lastValue;
     ofEvent<Type> changeValueEvent;
 
-    ofPath background;
     ofPath bar;
 
     ofColor barColor = ofColor(128, 128, 128);
@@ -53,7 +51,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     bool bHandling = false;
 
-    void changeValue(Type v, bool notifyEvent = true);
+    virtual void changeValue(Type v, bool notifyEvent = true);
 };
 
 typedef ofxSimpleSlider<float> ofxSimpleFloatSlider;

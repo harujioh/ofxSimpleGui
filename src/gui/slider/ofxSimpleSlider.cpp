@@ -27,12 +27,6 @@ void ofxSimpleSlider<Type>::resize() {
 }
 
 template <typename Type>
-void ofxSimpleSlider<Type>::render() {
-    background.draw();
-    bar.draw();
-}
-
-template <typename Type>
 void ofxSimpleSlider<Type>::update() {
     float w = rect.width - borderWidth * 2;
     float h = rect.height - borderWidth * 2;
@@ -48,6 +42,12 @@ void ofxSimpleSlider<Type>::update() {
             lastValue = value;
         }
     }
+}
+
+template <typename Type>
+void ofxSimpleSlider<Type>::render() {
+    background.draw();
+    bar.draw();
 }
 
 template <typename Type>

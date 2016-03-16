@@ -54,7 +54,8 @@ class ofxSimpleBaseGui {
 
    protected:
     virtual void render() = 0;
-    virtual void resize() = 0;
+    virtual void resize() { update(); };
+    virtual void update() = 0;
 
     ofxSimpleBaseGui* parent = nullptr;
     std::string name;
@@ -62,6 +63,7 @@ class ofxSimpleBaseGui {
     ofRectangle rect;
     ofRectangle b, p;
 
+    ofPath background;
     ofColor backgroundColor = defaultBackgroundColor;
     ofColor borderColor = defaultBorderColor;
     ofColor textColor = defaultTextColor;

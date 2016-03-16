@@ -10,6 +10,8 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     ofxSimpleSlider* setup(const std::string& name, Type value, Type min, Type max, float width = defaultWidth, float height = defaultHeight);
 
+    bool isHandling() { return bHandling; }
+
     void setMin(Type min);
     Type getMin();
     void setMax(Type max);
@@ -23,15 +25,22 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     virtual bool onMouseScrolled(ofMouseEventArgs& args);
 
     template <class ListenerClass, typename ListenerMethod>
-    void addListener(ListenerClass* listener, ListenerMethod method) {
-        ofAddListener(changeValueEvent, listener, method);
+    void addListener(ListenerClass* listener, ListenerMethod changedMethod, ListenerMethod changingMethod = NULL) {
+        ofAddListener(changeValueEvent, listener, changedMethod);
+        if(changingMethod != NULL){
+            ofAddListener(changingValueEvent, listener, changingMethod);
+        }
     }
 
     template <class ListenerClass, typename ListenerMethod>
-    void removeListener(ListenerClass* listener, ListenerMethod method) {
-        ofRemoveListener(changeValueEvent, listener, method);
+    void removeListener(ListenerClass* listener, ListenerMethod changedMethod, ListenerMethod changingMethod = NULL) {
+        ofRemoveListener(changeValueEvent, listener, changedMethod);
+        if(changingMethod != NULL){
+            ofRemoveListener(changingValueEvent, listener, changingMethod);
+        }
     }
 
+    void set(Type v);
     double operator=(Type v);
     operator const Type&();
 
@@ -42,6 +51,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     ofParameter<Type> value, lastValue;
     ofEvent<Type> changeValueEvent;
+    ofEvent<Type> changingValueEvent;
 
     ofPath bar;
 

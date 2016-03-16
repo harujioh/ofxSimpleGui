@@ -55,8 +55,12 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
     v = value.getMin() > v ? value.getMin() : v;
     v = value.getMax() < v ? value.getMax() : v;
     if (value != v) {
-        if (notifyEvent && !bUpdateOnReleaseOnly) {
-            ofNotifyEvent(changeValueEvent, v);
+        if (notifyEvent) {
+            if(!bUpdateOnReleaseOnly){
+                ofNotifyEvent(changeValueEvent, v);
+            }else{
+                ofNotifyEvent(changingValueEvent, v);
+            }
         }
         value = v;
         update();

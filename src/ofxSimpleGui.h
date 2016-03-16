@@ -5,3 +5,5 @@
 #include "ofxSeekbar.h"
 
 #include "ofxSimpleButton.h"
+
+#include "ofxSimpleLabel.h"

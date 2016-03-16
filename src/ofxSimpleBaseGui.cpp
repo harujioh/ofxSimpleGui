@@ -1,6 +1,6 @@
 #include "ofxSimpleBaseGui.h"
 
-ofxSimpleBaseGui::ofxSimpleBaseGui() { ofxSimpleBaseGui::loadFont(OF_TTF_MONO, defaultFontSize, true, true); }
+ofxSimpleBaseGui::ofxSimpleBaseGui() {}
 
 ofxSimpleBaseGui::~ofxSimpleBaseGui() { unregisterMouseEvents(); }
 

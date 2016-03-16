@@ -2,21 +2,16 @@
 
 ofxSimpleLabel* ofxSimpleLabel::setup(const std::string& name, float width, float height) {
     this->name = name;
-    this->value = false;
+    this->value = name;
     setSize(width, height);
 
     return this;
 }
 
-
-void ofxSimpleLabel::resize() {
-    textMesh = getTextMesh(name, b);
-    
-    update();
-}
-
 void ofxSimpleLabel::update() {
     background.clear();
+
+    textMesh = getTextMesh(ofToString(value), b, align, valign);
 }
 
 void ofxSimpleLabel::render() {

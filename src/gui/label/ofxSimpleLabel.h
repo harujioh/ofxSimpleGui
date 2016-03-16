@@ -16,7 +16,6 @@ class ofxSimpleLabel : public ofxSimpleBaseGui {
     operator const string&();
 
    protected:
-    virtual void resize();
     virtual void update();
     virtual void render();
 

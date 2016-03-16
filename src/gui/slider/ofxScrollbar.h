@@ -11,9 +11,8 @@ class ofxScrollbar : public ofxSimpleSlider<Type> {
     ofxScrollbar* setup(const std::string& name, Type value, Type min, Type max, float width = ofxSimpleBaseGui::defaultWidth, float height = ofxSimpleBaseGui::defaultHeight, float gripWidth = 20) {
         this->name = name;
         this->value.set(name, value, min, max);
-        this->setSize(width, height);
-
         grip.width = gripWidth;
+        this->setSize(width, height);
 
         return this;
     }

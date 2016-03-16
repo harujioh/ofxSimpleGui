@@ -5,8 +5,8 @@ ofxSimpleButton::ofxSimpleButton() { registerMouseEvents(); }
 ofxSimpleButton* ofxSimpleButton::setup(const std::string& name, ButtonType type, float width, float height) {
     this->name = name;
     this->value = false;
-    setSize(width, height);
     setButtonType(type);
+    setSize(width, height);
 
     return this;
 }

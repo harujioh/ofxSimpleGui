@@ -13,10 +13,10 @@ class ofxSeekbar : public ofxScrollbar<Type> {
     ofxSeekbar* setup(const std::string& name, Type value, Type min, Type max, float width = ofxSimpleBaseGui::defaultWidth, float height = ofxSimpleBaseGui::defaultHeight, float gripDiameter = 20) {
         this->name = name;
         this->value.set(name, value, min, max);
-        this->setSize(width, height);
         this->grip.setSize(gripDiameter, gripDiameter);
-
         this->borderWidth = 0;
+
+        this->setSize(width, height);
 
         return this;
     }

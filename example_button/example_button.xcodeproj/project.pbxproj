@@ -159,20 +159,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>ADB26F1EEF6C080E1CBAB559</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>5EC09F84F098AB8D56E4E361</string>
-					<string>2CEDFD710FE9FD70CA733AF7</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>label</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
 			<key>A376E66402A63B1E3B9C6FFB</key>
 			<dict>
 				<key>fileRef</key>
@@ -192,6 +178,36 @@
 				<string>ofxSimpleLabel.cpp</string>
 				<key>path</key>
 				<string>../../../addons/ofxSimpleGui/src/gui/label/ofxSimpleLabel.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>ADB26F1EEF6C080E1CBAB559</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>030C08BDDD0CED28E7C3A7A4</string>
+					<string>5EC09F84F098AB8D56E4E361</string>
+					<string>2CEDFD710FE9FD70CA733AF7</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>label</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>030C08BDDD0CED28E7C3A7A4</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxInteractiveLabel.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSimpleGui/src/gui/label/ofxInteractiveLabel.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>

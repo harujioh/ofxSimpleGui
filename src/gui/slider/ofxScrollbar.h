@@ -13,6 +13,7 @@ class ofxScrollbar : public ofxSimpleSlider<Type> {
         this->value.set(name, value, min, max);
         grip.width = gripWidth;
         this->setSize(width, height);
+        this->setBorderWidth(1);
 
         return this;
     }

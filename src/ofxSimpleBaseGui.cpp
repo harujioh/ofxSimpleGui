@@ -91,13 +91,22 @@ ofColor ofxSimpleBaseGui::getTextColor() const { return textColor; }
 
 float ofxSimpleBaseGui::getBorderWidth() const { return borderWidth; }
 
-void ofxSimpleBaseGui::setBackgroundColor(const ofColor& color) { backgroundColor = color; }
+void ofxSimpleBaseGui::setBackgroundColor(const ofColor& color) {
+    backgroundColor = color;
+    resizeRect();
+}
 
-void ofxSimpleBaseGui::setBorderColor(const ofColor& color) { borderColor = color; }
+void ofxSimpleBaseGui::setBorderColor(const ofColor& color) {
+    borderColor = color;
+    resizeRect();
+}
 
 void ofxSimpleBaseGui::setTextColor(const ofColor& color) { textColor = color; }
 
-void ofxSimpleBaseGui::setBorderWidth(const float& width) { borderWidth = width; }
+void ofxSimpleBaseGui::setBorderWidth(const float& width) {
+    borderWidth = width;
+    resizeRect();
+}
 
 void ofxSimpleBaseGui::setParent(ofxSimpleBaseGui* parent) { parent = parent; }
 
@@ -194,6 +203,6 @@ int ofxSimpleBaseGui::defaultHeight = 20;
 ofColor ofxSimpleBaseGui::defaultBackgroundColor = ofColor(255, 255, 255, 0);
 ofColor ofxSimpleBaseGui::defaultBorderColor = ofColor(0, 0, 0);
 ofColor ofxSimpleBaseGui::defaultTextColor = ofColor(0, 0, 0);
-float ofxSimpleBaseGui::defaultBorderWidth = 1;
+float ofxSimpleBaseGui::defaultBorderWidth = 0;
 
 string ofxSimpleBaseGui::BASE_FONT_SIZE_CHAR = "@";

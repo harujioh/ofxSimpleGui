@@ -27,7 +27,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     template <class ListenerClass, typename ListenerMethod>
     void addListener(ListenerClass* listener, ListenerMethod changedMethod, ListenerMethod changingMethod = NULL) {
         ofAddListener(changeValueEvent, listener, changedMethod);
-        if(changingMethod != NULL){
+        if (changingMethod != NULL) {
             ofAddListener(changingValueEvent, listener, changingMethod);
         }
     }
@@ -35,7 +35,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
     template <class ListenerClass, typename ListenerMethod>
     void removeListener(ListenerClass* listener, ListenerMethod changedMethod, ListenerMethod changingMethod = NULL) {
         ofRemoveListener(changeValueEvent, listener, changedMethod);
-        if(changingMethod != NULL){
+        if (changingMethod != NULL) {
             ofRemoveListener(changingValueEvent, listener, changingMethod);
         }
     }

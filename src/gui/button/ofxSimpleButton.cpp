@@ -7,6 +7,7 @@ ofxSimpleButton* ofxSimpleButton::setup(const std::string& name, ButtonType type
     this->value = false;
     setButtonType(type);
     setSize(width, height);
+    setBorderWidth(1);
 
     return this;
 }

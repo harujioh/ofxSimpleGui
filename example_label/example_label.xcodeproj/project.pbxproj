@@ -744,7 +744,7 @@ IFS=$SAVED_IFS
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>example_slider</string>
+				<string>example_label</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -761,7 +761,7 @@ IFS=$SAVED_IFS
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>example_sliderDebug.app</string>
+				<string>example_labelDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>

@@ -42,7 +42,7 @@ class ofxSimpleBaseGui {
     void setTextColor(const ofColor& color);
     void setBorderWidth(const float& width);
 
-    static void loadFont(const std::string& filename, int fontsize, bool _bAntiAliased = true, bool _bFullCharacterSet = false, int dpi = 0);
+    static void loadFont(const std::string& filename = OF_TTF_MONO, int fontsize = 10, bool _bAntiAliased = true, bool _bFullCharacterSet = false, int dpi = 0);
 
     void setParent(ofxSimpleBaseGui* parent);
     ofxSimpleBaseGui* getParent();
@@ -104,7 +104,7 @@ class ofxSimpleBaseGui {
 
    private:
     static string BASE_FONT_SIZE_CHAR;
-    
+
     bool bRegisteredForMouseEvents = false;
 
     void resizeRect();

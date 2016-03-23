@@ -10,6 +10,7 @@ ofxSimpleSlider<Type>* ofxSimpleSlider<Type>::setup(const std::string& name, Typ
     this->name = name;
     this->value.set(name, value, min, max);
     setSize(width, height);
+    setBorderWidth(1);
 
     return this;
 }
@@ -56,9 +57,9 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
     v = value.getMax() < v ? value.getMax() : v;
     if (value != v) {
         if (notifyEvent) {
-            if(!bUpdateOnReleaseOnly){
+            if (!bUpdateOnReleaseOnly) {
                 ofNotifyEvent(changeValueEvent, v);
-            }else{
+            } else {
                 ofNotifyEvent(changingValueEvent, v);
             }
         }

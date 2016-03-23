@@ -7,6 +7,7 @@ class ofxSimpleLabel : public ofxSimpleBaseGui {
     ofxSimpleLabel(){};
     virtual ~ofxSimpleLabel(){};
 
+    //    ofxSimpleLabel* setup(const std::string& name);
     ofxSimpleLabel* setup(const std::string& name, float width = defaultWidth, float height = defaultHeight);
 
     void setAlign(Align align) { this->align = align; }
@@ -19,8 +20,9 @@ class ofxSimpleLabel : public ofxSimpleBaseGui {
     virtual void update();
     virtual void render();
 
-    Align align;
-    Valign valign;
+    bool resizeWithText;
+    Align align = LEFT;
+    Valign valign = MIDDLE;
 
     string value;
 };

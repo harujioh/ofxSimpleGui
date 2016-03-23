@@ -7,3 +7,4 @@
 #include "ofxSimpleButton.h"
 
 #include "ofxSimpleLabel.h"
+#include "ofxInteractiveLabel.h"

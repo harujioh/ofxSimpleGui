@@ -129,10 +129,107 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
+			<key>F0A8916F3200A181EE0A64DD</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxScrollbar.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSimpleGui/src/gui/slider/ofxScrollbar.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>2CEDFD710FE9FD70CA733AF7</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSimpleLabel.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSimpleGui/src/gui/label/ofxSimpleLabel.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>ADB26F1EEF6C080E1CBAB559</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>5EC09F84F098AB8D56E4E361</string>
+					<string>2CEDFD710FE9FD70CA733AF7</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>label</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>A376E66402A63B1E3B9C6FFB</key>
+			<dict>
+				<key>fileRef</key>
+				<string>5EC09F84F098AB8D56E4E361</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>5EC09F84F098AB8D56E4E361</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSimpleLabel.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxSimpleGui/src/gui/label/ofxSimpleLabel.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>90B0D66E3B6FD5829D5CDE40</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSimpleButton.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSimpleGui/src/gui/button/ofxSimpleButton.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>402B8EF7A6CE205E8CADEAF6</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>3439CDC2CB64C695174E33B3</string>
+					<string>90B0D66E3B6FD5829D5CDE40</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>button</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
 			<key>13C96F5672704C78DFBD006E</key>
 			<dict>
 				<key>children</key>
 				<array>
+					<string>402B8EF7A6CE205E8CADEAF6</string>
+					<string>ADB26F1EEF6C080E1CBAB559</string>
 					<string>FCEDA8152FE1BE1608724C05</string>
 				</array>
 				<key>isa</key>
@@ -171,18 +268,25 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>F0A8916F3200A181EE0A64DD</key>
+			<key>64E358D60351EB9F6E4515A0</key>
+			<dict>
+				<key>fileRef</key>
+				<string>3439CDC2CB64C695174E33B3</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>3439CDC2CB64C695174E33B3</key>
 			<dict>
 				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
+				<string>sourcecode.cpp.cpp</string>
 				<key>fileEncoding</key>
 				<string>30</string>
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>ofxScrollbar.h</string>
+				<string>ofxSimpleButton.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxSimpleGui/src/gui/slider/ofxScrollbar.h</string>
+				<string>../../../addons/ofxSimpleGui/src/gui/button/ofxSimpleButton.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -455,8 +559,11 @@ IFS=$SAVED_IFS
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
+						<string>src</string>
 						<string>../../../addons/ofxSimpleGui/src</string>
 						<string>../../../addons/ofxSimpleGui/src/gui</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/button</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/label</string>
 						<string>../../../addons/ofxSimpleGui/src/gui/slider</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
@@ -515,8 +622,11 @@ IFS=$SAVED_IFS
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
+						<string>src</string>
 						<string>../../../addons/ofxSimpleGui/src</string>
 						<string>../../../addons/ofxSimpleGui/src/gui</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/button</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/label</string>
 						<string>../../../addons/ofxSimpleGui/src/gui/slider</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
@@ -574,6 +684,8 @@ IFS=$SAVED_IFS
 				<array>
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
+					<string>64E358D60351EB9F6E4515A0</string>
+					<string>A376E66402A63B1E3B9C6FFB</string>
 					<string>FCED936A3E132D12CAAB90A9</string>
 					<string>5363E8F71160719B0E826E6B</string>
 				</array>
@@ -660,8 +772,11 @@ IFS=$SAVED_IFS
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
+						<string>src</string>
 						<string>../../../addons/ofxSimpleGui/src</string>
 						<string>../../../addons/ofxSimpleGui/src/gui</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/button</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/label</string>
 						<string>../../../addons/ofxSimpleGui/src/gui/slider</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
@@ -710,8 +825,11 @@ IFS=$SAVED_IFS
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
+						<string>src</string>
 						<string>../../../addons/ofxSimpleGui/src</string>
 						<string>../../../addons/ofxSimpleGui/src/gui</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/button</string>
+						<string>../../../addons/ofxSimpleGui/src/gui/label</string>
 						<string>../../../addons/ofxSimpleGui/src/gui/slider</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>

@@ -26,8 +26,9 @@ class ofxInteractiveLabel : public ofxSimpleLabel {
                 int r = backgroundInteractiveColor.r * (1.0f - rate) + backgroundColor.r * rate;
                 int g = backgroundInteractiveColor.g * (1.0f - rate) + backgroundColor.g * rate;
                 int b = backgroundInteractiveColor.b * (1.0f - rate) + backgroundColor.b * rate;
+                int a = backgroundInteractiveColor.a * (1.0f - rate) + backgroundColor.a * rate;
 
-                updateBackground(ofColor(r, g, b));
+                updateBackground(ofColor(r, g, b, a));
             }
         }
         background.draw();

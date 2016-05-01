@@ -201,8 +201,8 @@ int ofxSimpleBaseGui::defaultFontSize = 10;
 int ofxSimpleBaseGui::defaultWidth = 200;
 int ofxSimpleBaseGui::defaultHeight = 20;
 ofColor ofxSimpleBaseGui::defaultBackgroundColor = ofColor(255, 255, 255, 0);
-ofColor ofxSimpleBaseGui::defaultBorderColor = ofColor(0, 0, 0);
-ofColor ofxSimpleBaseGui::defaultTextColor = ofColor(0, 0, 0);
+ofColor ofxSimpleBaseGui::defaultBorderColor = ofColor(0, 0, 0, 255);
+ofColor ofxSimpleBaseGui::defaultTextColor = ofColor(0, 0, 0, 255);
 float ofxSimpleBaseGui::defaultBorderWidth = 0;
 
 string ofxSimpleBaseGui::BASE_FONT_SIZE_CHAR = "@";

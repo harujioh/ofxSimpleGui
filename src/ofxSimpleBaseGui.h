@@ -42,6 +42,14 @@ class ofxSimpleBaseGui {
     void setTextColor(const ofColor& color);
     void setBorderWidth(const float& width);
 
+    static void setDefaultFontSize(const int& defaultFontSize) { ofxSimpleBaseGui::defaultFontSize = defaultFontSize; }
+    static void setDefaultWidth(const int& defaultWidth) { ofxSimpleBaseGui::defaultWidth = defaultWidth; }
+    static void setDefaultHeight(const int& defaultHeight) { ofxSimpleBaseGui::defaultHeight = defaultHeight; }
+    static void setDefaultBackgroundColor(const ofColor& defaultBackgroundColor) { ofxSimpleBaseGui::defaultBackgroundColor = defaultBackgroundColor; }
+    static void setDefaultBorderColor(const ofColor& defaultBorderColor) { ofxSimpleBaseGui::defaultBorderColor = defaultBorderColor; }
+    static void setDefaultTextColor(const ofColor& defaultTextColor) { ofxSimpleBaseGui::defaultTextColor = defaultTextColor; }
+    static void setDefaultBorderWidth(const float& defaultBorderWidth) { ofxSimpleBaseGui::defaultBorderWidth = defaultBorderWidth; }
+
     static void loadFont(const std::string& filename = OF_TTF_MONO, int fontsize = 10, bool _bAntiAliased = true, bool _bFullCharacterSet = false, int dpi = 0);
 
     void setParent(ofxSimpleBaseGui* parent);

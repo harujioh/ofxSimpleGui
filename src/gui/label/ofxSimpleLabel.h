@@ -15,6 +15,8 @@ class ofxSimpleLabel : public ofxSimpleBaseGui {
 
     string operator=(string v);
     operator const string&();
+    bool operator==(const string& obj) const;
+    bool operator!=(const string& obj) const;
 
    protected:
     virtual void update();

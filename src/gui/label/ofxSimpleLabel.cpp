@@ -44,3 +44,7 @@ string ofxSimpleLabel::operator=(string v) {
 }
 
 ofxSimpleLabel::operator const string&() { return value; }
+
+bool ofxSimpleLabel::operator==(const string& obj) const { return value == obj; }
+
+bool ofxSimpleLabel::operator!=(const string& obj) const { return value != obj; }

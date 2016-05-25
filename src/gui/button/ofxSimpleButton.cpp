@@ -4,7 +4,6 @@ ofxSimpleButton::ofxSimpleButton() { registerMouseEvents(); }
 
 ofxSimpleButton* ofxSimpleButton::setup(const std::string& name, ButtonType type, float width, float height) {
     this->name = name;
-    this->value = false;
     setButtonType(type);
     setSize(width, height);
     setBorderWidth(1);
@@ -108,7 +107,7 @@ void ofxSimpleButton::render() {
     unbindFontTexture();
 }
 
-void ofxSimpleButton::changeValue(bool v, bool notifyEvent) {
+void ofxSimpleButton::changeValue(bool notifyEvent) {
     if (notifyEvent) {
         ofNotifyEvent(clickAllEvent, *this);
         ofNotifyEvent(clickEvent);
@@ -179,7 +178,5 @@ bool ofxSimpleButton::onMouseReleased(ofMouseEventArgs& args) {
     }
     return false;
 }
-
-ofxSimpleButton::operator const bool&() { return value; }
 
 ofEvent<ofxSimpleBaseGui> ofxSimpleButton::clickAllEvent;

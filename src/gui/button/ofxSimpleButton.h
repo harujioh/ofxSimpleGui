@@ -2,7 +2,7 @@
 
 #include "ofxSimpleBaseGui.h"
 
-enum ButtonType { DEFAULT, PRIMARY, SUCCESS, INFO, WARNING, DANGER };
+enum ButtonType { OTHER, DEFAULT, PRIMARY, SUCCESS, INFO, WARNING, DANGER };
 
 class ofxSimpleButton : public ofxSimpleBaseGui {
    public:
@@ -38,15 +38,13 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
         ofRemoveListener(clickAllEvent, listener, method);
     }
 
-    operator const bool&();
-
    protected:
     virtual void resize();
     virtual void update();
     virtual void render();
 
-    bool value = false;
     ofEvent<void> clickEvent;
+    static ofEvent<ofxSimpleBaseGui> clickAllEvent;
 
     ofColor backgroundHoverColor;
     ofColor borderHoverColor;
@@ -57,8 +55,5 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
     bool bPressed = false;
     bool bActive = false;
 
-    virtual void changeValue(bool v, bool notifyEvent = true);
-
-   private:
-    static ofEvent<ofxSimpleBaseGui> clickAllEvent;
+    virtual void changeValue(bool notifyEvent = true);
 };

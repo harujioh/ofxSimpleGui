@@ -1,6 +1,11 @@
 #include "ofxSimpleButtonGroup.h"
 
-ofxSimpleButtonGroup::ofxSimpleButtonGroup() {}
+ofxSimpleButtonGroup::~ofxSimpleButtonGroup() {
+    for (auto it = buttons.begin(); it != buttons.end(); ++it) {
+        delete *it;
+        buttons.erase(it);
+    }
+}
 
 ofxSimpleButtonGroup* ofxSimpleButtonGroup::setup(const std::string& name, float buttonWidth, float buttonHeight, float buttonMargin) {
     this->name = name;
@@ -24,10 +29,7 @@ void ofxSimpleButtonGroup::render() {
     }
 }
 
-void ofxSimpleButtonGroup::add(const std::string& name, float margin) {
-    ofxSimpleButton* button = new ofxSimpleButton();
-    button->setup(name);
-
+void ofxSimpleButtonGroup::add(ofxSimpleButton* button, float margin) {
     if (buttons.size() == 0) {
         button->setShape(b.x, b.y + b.height, buttonWidth, buttonHeight);
         value = button;
@@ -37,6 +39,12 @@ void ofxSimpleButtonGroup::add(const std::string& name, float margin) {
     buttons.push_back(button);
 
     setSize(buttonWidth, b.height + margin + buttonHeight);
+}
+
+void ofxSimpleButtonGroup::add(const std::string& name, float margin) {
+    ofxSimpleButton* button = new ofxSimpleButton();
+    button->setup(name);
+    add(button, margin);
 }
 
 void ofxSimpleButtonGroup::clickedButton(ofxSimpleBaseGui& button) {

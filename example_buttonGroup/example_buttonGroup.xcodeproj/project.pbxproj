@@ -58,6 +58,11 @@
 		6B711133CAE7C7C676D39261 /* ofxInteractiveLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxInteractiveLabel.cpp; path = ../../../addons/ofxSimpleGui/src/gui/label/ofxInteractiveLabel.cpp; sourceTree = SOURCE_ROOT; };
 		7F6788421CF59771009758AC /* ofxSimpleButtonGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxSimpleButtonGroup.cpp; path = ../src/gui/buttonGroup/ofxSimpleButtonGroup.cpp; sourceTree = "<group>"; };
 		7F6788431CF59771009758AC /* ofxSimpleButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxSimpleButtonGroup.h; path = ../src/gui/buttonGroup/ofxSimpleButtonGroup.h; sourceTree = "<group>"; };
+		7F6788471CF5E10A009758AC /* ofxRadioButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxRadioButton.h; path = ../src/gui/button/ofxRadioButton.h; sourceTree = "<group>"; };
+		7F6788481CF5E129009758AC /* ofxCheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxCheckBox.h; path = ../src/gui/button/ofxCheckBox.h; sourceTree = "<group>"; };
+		7F6788491CF5E69D009758AC /* ofxToggleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxToggleButton.h; path = ../src/gui/button/ofxToggleButton.h; sourceTree = "<group>"; };
+		7F67884A1CF62D56009758AC /* ofxRadioButtonGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxRadioButtonGroup.h; path = ../src/gui/buttonGroup/ofxRadioButtonGroup.h; sourceTree = "<group>"; };
+		7F67884B1CF62D64009758AC /* ofxCheckBoxGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxCheckBoxGroup.h; path = ../src/gui/buttonGroup/ofxCheckBoxGroup.h; sourceTree = "<group>"; };
 		90B0D66E3B6FD5829D5CDE40 /* ofxSimpleButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleButton.h; path = ../../../addons/ofxSimpleGui/src/gui/button/ofxSimpleButton.h; sourceTree = SOURCE_ROOT; };
 		9BB2E00A8C9CDBB7CBB52006 /* ofxSimpleSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleSlider.h; path = ../../../addons/ofxSimpleGui/src/gui/slider/ofxSimpleSlider.h; sourceTree = SOURCE_ROOT; };
 		C05DDAAA835B9A9D8CD67E98 /* ofxSimpleBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleBaseGui.h; path = ../../../addons/ofxSimpleGui/src/ofxSimpleBaseGui.h; sourceTree = SOURCE_ROOT; };
@@ -109,6 +114,9 @@
 			children = (
 				3439CDC2CB64C695174E33B3 /* ofxSimpleButton.cpp */,
 				90B0D66E3B6FD5829D5CDE40 /* ofxSimpleButton.h */,
+				7F6788491CF5E69D009758AC /* ofxToggleButton.h */,
+				7F6788471CF5E10A009758AC /* ofxRadioButton.h */,
+				7F6788481CF5E129009758AC /* ofxCheckBox.h */,
 			);
 			name = button;
 			sourceTree = "<group>";
@@ -125,6 +133,8 @@
 			children = (
 				7F6788421CF59771009758AC /* ofxSimpleButtonGroup.cpp */,
 				7F6788431CF59771009758AC /* ofxSimpleButtonGroup.h */,
+				7F67884A1CF62D56009758AC /* ofxRadioButtonGroup.h */,
+				7F67884B1CF62D64009758AC /* ofxCheckBoxGroup.h */,
 			);
 			name = buttonGroup;
 			sourceTree = "<group>";

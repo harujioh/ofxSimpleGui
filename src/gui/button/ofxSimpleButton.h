@@ -28,6 +28,16 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
         ofRemoveListener(clickEvent, listener, method);
     }
 
+    template <class ListenerClass, typename ListenerMethod>
+    static void addAllListener(ListenerClass* listener, ListenerMethod method) {
+        ofAddListener(clickAllEvent, listener, method);
+    }
+
+    template <class ListenerClass, typename ListenerMethod>
+    static void removeAllListener(ListenerClass* listener, ListenerMethod method) {
+        ofRemoveListener(clickAllEvent, listener, method);
+    }
+
     operator const bool&();
 
    protected:
@@ -48,4 +58,7 @@ class ofxSimpleButton : public ofxSimpleBaseGui {
     bool bActive = false;
 
     virtual void changeValue(bool v, bool notifyEvent = true);
+
+   private:
+    static ofEvent<ofxSimpleBaseGui> clickAllEvent;
 };

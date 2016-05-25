@@ -110,6 +110,7 @@ void ofxSimpleButton::render() {
 
 void ofxSimpleButton::changeValue(bool v, bool notifyEvent) {
     if (notifyEvent) {
+        ofNotifyEvent(clickAllEvent, *this);
         ofNotifyEvent(clickEvent);
     }
 }
@@ -180,3 +181,5 @@ bool ofxSimpleButton::onMouseReleased(ofMouseEventArgs& args) {
 }
 
 ofxSimpleButton::operator const bool&() { return value; }
+
+ofEvent<ofxSimpleBaseGui> ofxSimpleButton::clickAllEvent;

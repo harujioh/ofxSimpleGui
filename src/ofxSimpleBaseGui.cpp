@@ -113,8 +113,8 @@ void ofxSimpleBaseGui::setParent(ofxSimpleBaseGui* parent) { parent = parent; }
 ofxSimpleBaseGui* ofxSimpleBaseGui::getParent() { return parent; }
 
 bool ofxSimpleBaseGui::mouseMoved(ofMouseEventArgs& args) {
-    bool result = onMouseMoved(args);
-    return result;
+    onMouseMoved(args);
+    return false;
 }
 
 bool ofxSimpleBaseGui::mousePressed(ofMouseEventArgs& args) {

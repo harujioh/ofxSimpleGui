@@ -6,5 +6,7 @@
 
 #include "ofxSimpleButton.h"
 
+#include "ofxSimpleButtonGroup.h"
+
 #include "ofxSimpleLabel.h"
 #include "ofxInteractiveLabel.h"

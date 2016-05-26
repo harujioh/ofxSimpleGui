@@ -48,8 +48,10 @@ class ofxInteractiveLabel : public ofxSimpleLabel {
     }
 
     string operator=(string v) {
-        value = v;
-        update();
+        if (value != v) {
+            value = v;
+            update();
+        }
         return v;
     }
 

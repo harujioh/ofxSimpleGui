@@ -40,6 +40,7 @@ class ofxCheckBoxGroup : public ofxSimpleButtonGroup {
 
    protected:
     virtual void changeValue(ofxSimpleButton& button, bool notifyEvent = true) {
+        value = &button;
         values.clear();
         for (auto it = buttons.begin(); it != buttons.end(); ++it) {
             if (*(ofxCheckBox*)*it == true) {

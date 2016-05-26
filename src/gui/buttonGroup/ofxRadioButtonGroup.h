@@ -35,11 +35,11 @@ class ofxRadioButtonGroup : public ofxSimpleButtonGroup {
 
    protected:
     virtual void changeValue(ofxSimpleButton& button, bool notifyEvent = true) {
+        value = &button;
         for (auto it = buttons.begin(); it != buttons.end(); ++it) {
             (*(ofxRadioButton*)*it) = *it == &button;
         }
 
-        value = &button;
         if (notifyEvent) {
             string name = button.getName();
             ofNotifyEvent(changeEvent, name);

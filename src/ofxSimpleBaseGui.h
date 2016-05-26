@@ -91,6 +91,8 @@ class ofxSimpleBaseGui {
     static bool useTTF;
     static float fontHeight;
     ofVboMesh textMesh;
+    Align align = LEFT;
+    Valign valign = MIDDLE;
 
     ofMesh getTextMesh(const string& text, float x, float y);
     ofMesh getTextMesh(const string& text, ofRectangle rect, Align align = Align::CENTER, Valign valign = Valign::MIDDLE);

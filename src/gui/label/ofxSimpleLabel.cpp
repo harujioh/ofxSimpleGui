@@ -1,13 +1,5 @@
 #include "ofxSimpleLabel.h"
 
-// ofxSimpleLabel* ofxSimpleLabel::setup(const std::string& name) {
-//    this->name = name;
-//    this->value = name;
-//    this->resizeWithText = true;
-//
-//    return this;
-//}
-
 ofxSimpleLabel* ofxSimpleLabel::setup(const std::string& name, float width, float height) {
     this->name = name;
     this->value = name;

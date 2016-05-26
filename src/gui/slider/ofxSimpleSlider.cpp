@@ -43,12 +43,23 @@ void ofxSimpleSlider<Type>::update() {
             lastValue = value;
         }
     }
+
+    if (textVisible) {
+        textMesh = getTextMesh(ofToString(value), b);
+    }
 }
 
 template <typename Type>
 void ofxSimpleSlider<Type>::render() {
     background.draw();
     bar.draw();
+
+    if (textVisible) {
+        ofSetColor(textColor);
+        bindFontTexture();
+        textMesh.draw();
+        unbindFontTexture();
+    }
 }
 
 template <typename Type>
@@ -56,6 +67,9 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
     v = value.getMin() > v ? value.getMin() : v;
     v = value.getMax() < v ? value.getMax() : v;
     if (value != v) {
+        value = v;
+        update();
+        
         if (notifyEvent) {
             if (!bUpdateOnReleaseOnly) {
                 ofNotifyEvent(changeValueEvent, v);
@@ -63,8 +77,6 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
                 ofNotifyEvent(changingValueEvent, v);
             }
         }
-        value = v;
-        update();
     }
 }
 

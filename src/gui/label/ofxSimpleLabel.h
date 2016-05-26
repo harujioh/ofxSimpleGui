@@ -23,8 +23,6 @@ class ofxSimpleLabel : public ofxSimpleBaseGui {
     virtual void render();
 
     bool resizeWithText;
-    Align align = LEFT;
-    Valign valign = MIDDLE;
 
     string value;
 };

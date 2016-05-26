@@ -10,6 +10,8 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     ofxSimpleSlider* setup(const std::string& name, Type value, Type min, Type max, float width = defaultWidth, float height = defaultHeight);
 
+    void setTextVisible(bool textVisible) { this->textVisible = textVisible; }
+
     bool isHandling() { return bHandling; }
 
     void setMin(Type min);
@@ -59,6 +61,7 @@ class ofxSimpleSlider : public ofxSimpleBaseGui {
 
     bool bUpdateOnReleaseOnly = false;
 
+    bool textVisible = true;
     bool bHandling = false;
 
     virtual void changeValue(Type v, bool notifyEvent = true);

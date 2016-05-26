@@ -20,8 +20,7 @@ class ofxSimpleButtonGroup : public ofxSimpleBaseGui {
         ofRemoveListener(changeEvent, listener, method);
     }
 
-    virtual void add(const std::string& name) { add(name, buttonMargin); }
-    virtual void add(const std::string& name, float margin);
+    virtual void add(const std::string& name);
 
     void clickedButton(ofxSimpleBaseGui& button);
 
@@ -30,7 +29,7 @@ class ofxSimpleButtonGroup : public ofxSimpleBaseGui {
     virtual void update();
     virtual void render();
 
-    void add(ofxSimpleButton* button, float margin = 0);
+    void add(ofxSimpleButton* button);
 
     ofxSimpleButton* value = NULL;
     ofEvent<string> changeEvent;

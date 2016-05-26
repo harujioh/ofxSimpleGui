@@ -18,11 +18,13 @@ class ofxCheckBoxGroup : public ofxSimpleButtonGroup {
         ofRemoveListener(changeEvent, listener, method);
     }
 
-    virtual void add(const std::string& name) { add(name, buttonMargin); }
-    virtual void add(const std::string& name, float margin) {
+    virtual void add(const std::string& name, bool selected = false) {
         ofxSimpleButton* button = new ofxCheckBox();
         button->setup(name);
-        ofxSimpleButtonGroup::add(button, margin);
+        ofxSimpleButtonGroup::add(button);
+
+        *(ofxCheckBox*)button = selected;
+        changeValue(*button);
     }
 
     vector<string> operator=(vector<string>& v) {

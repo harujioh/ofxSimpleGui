@@ -29,22 +29,22 @@ void ofxSimpleButtonGroup::render() {
     }
 }
 
-void ofxSimpleButtonGroup::add(ofxSimpleButton* button, float margin) {
+void ofxSimpleButtonGroup::add(ofxSimpleButton* button) {
     if (buttons.size() == 0) {
         button->setShape(b.x, b.y + b.height, buttonWidth, buttonHeight);
         value = button;
     } else {
-        button->setShape(b.x, b.y + b.height + margin, buttonWidth, buttonHeight);
+        button->setShape(b.x, b.y + b.height + buttonMargin, buttonWidth, buttonHeight);
     }
     buttons.push_back(button);
 
-    setSize(buttonWidth, b.height + margin + buttonHeight);
+    setSize(buttonWidth, b.height + buttonMargin + buttonHeight);
 }
 
-void ofxSimpleButtonGroup::add(const std::string& name, float margin) {
+void ofxSimpleButtonGroup::add(const std::string& name) {
     ofxSimpleButton* button = new ofxSimpleButton();
     button->setup(name);
-    add(button, margin);
+    add(button);
 }
 
 void ofxSimpleButtonGroup::clickedButton(ofxSimpleBaseGui& button) {

@@ -8,15 +8,14 @@ class ofxRadioButtonGroup : public ofxSimpleButtonGroup {
     ofxRadioButtonGroup() {}
     virtual ~ofxRadioButtonGroup() {}
 
-    virtual void add(const std::string& name) { add(name, buttonMargin); }
-    virtual void add(const std::string& name, float margin) {
+    virtual void add(const std::string& name, bool selected = false) {
         ofxSimpleButton* button = new ofxRadioButton();
         button->setup(name);
+        ofxSimpleButtonGroup::add(button);
 
-        if (buttons.size() == 0) {
-            *(ofxRadioButton*)button = true;
+        if (buttons.size() == 1 || selected) {
+            changeValue(*(ofxRadioButton*)button);
         }
-        ofxSimpleButtonGroup::add(button, margin);
     }
 
     string operator=(string v) {

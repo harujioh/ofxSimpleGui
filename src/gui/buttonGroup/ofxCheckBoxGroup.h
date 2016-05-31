@@ -27,6 +27,14 @@ class ofxCheckBoxGroup : public ofxSimpleButtonGroup {
         changeValue(*button);
     }
 
+    const string operator=(const string s) {
+        for (auto it = buttons.begin(); it != buttons.end(); ++it) {
+            *(ofxCheckBox*)*it = (*it)->getName() == s;
+        }
+        update();
+        return s;
+    }
+
     vector<string> operator=(vector<string>& v) {
         for (auto it = buttons.begin(); it != buttons.end(); ++it) {
             for (string s : v) {
@@ -37,6 +45,17 @@ class ofxCheckBoxGroup : public ofxSimpleButtonGroup {
         return v;
     }
     operator const vector<string>&() { return values; }
+
+    bool operator==(const string s) const {
+        for (auto it = buttons.begin(); it != buttons.end(); ++it) {
+            if (*(ofxCheckBox*)*it == true && (*it)->getName() == s) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool operator!=(const string s) const { return !(*this == s); }
 
    protected:
     virtual void changeValue(ofxSimpleButton& button, bool notifyEvent = true) {

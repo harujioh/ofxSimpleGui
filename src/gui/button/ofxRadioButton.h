@@ -20,9 +20,7 @@ class ofxRadioButton : public ofxToggleButton {
     void update() {
         ofColor nowBackgroundColor = backgroundColor;
         ofColor nowBorderColor = borderColor;
-        if (value) {
-            nowBackgroundColor = backgroundOnColor;
-        } else if (bActive) {
+        if (bActive) {
             nowBackgroundColor = backgroundActiveColor;
             nowBorderColor = borderActiveColor;
         } else if (bHover) {
@@ -37,7 +35,21 @@ class ofxRadioButton : public ofxToggleButton {
         background.setStrokeWidth(borderWidth);
         background.moveTo(rect.x + rect.width, rect.y + rect.height / 2);
         background.ellipse(rect.x + rect.width / 2, rect.y + rect.height / 2, rect.width, rect.height);
-        background.close();
+
+        check.clear();
+        if (value) {
+            float checkSizeRate = 0.7;
+            check.setFilled(true);
+            check.setFillColor(backgroundOnColor);
+            check.moveTo(rect.x + rect.width * checkSizeRate, rect.y + rect.height / 2);
+            check.ellipse(rect.x + rect.width / 2, rect.y + rect.height / 2, rect.width * checkSizeRate, rect.height * checkSizeRate);
+            check.close();
+        }
+    }
+
+    virtual void render() {
+        background.draw();
+        check.draw();
     }
 
     virtual void changeValue(bool notifyEvent = true) {
@@ -45,4 +57,6 @@ class ofxRadioButton : public ofxToggleButton {
             ofxToggleButton::changeValue(notifyEvent);
         }
     }
+
+    ofPath check;
 };

@@ -69,7 +69,7 @@ void ofxSimpleSlider<Type>::changeValue(Type v, bool notifyEvent) {
     if (value != v) {
         value = v;
         update();
-        
+
         if (notifyEvent) {
             if (!bUpdateOnReleaseOnly) {
                 ofNotifyEvent(changeValueEvent, v);

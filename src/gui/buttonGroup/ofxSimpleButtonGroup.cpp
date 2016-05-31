@@ -3,7 +3,6 @@
 ofxSimpleButtonGroup::~ofxSimpleButtonGroup() {
     for (auto it = buttons.begin(); it != buttons.end(); ++it) {
         delete *it;
-        buttons.erase(it);
     }
 }
 

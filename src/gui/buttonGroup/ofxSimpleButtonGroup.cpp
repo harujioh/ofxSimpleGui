@@ -46,6 +46,14 @@ void ofxSimpleButtonGroup::add(const std::string& name) {
     add(button);
 }
 
+vector<string> ofxSimpleButtonGroup::getAllName() {
+    vector<string> all;
+    for (ofxSimpleButton* button : buttons) {
+        all.push_back(button->getName());
+    }
+    return all;
+}
+
 void ofxSimpleButtonGroup::clickedButton(ofxSimpleBaseGui& button) {
     for (auto it = buttons.begin(); it != buttons.end(); ++it) {
         if (*it == &button) {

@@ -21,6 +21,7 @@ class ofxSimpleButtonGroup : public ofxSimpleBaseGui {
     }
 
     virtual void add(const std::string& name);
+    virtual vector<string> getAllName();
 
     void clickedButton(ofxSimpleBaseGui& button);
 
